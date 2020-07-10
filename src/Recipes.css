@@ -50,4 +50,34 @@ li {
   width: 300px;
   height: 100%;
   background-color: #343335;
+  text-align: center;
+}
+
+.recipe-icon-btn {
+  background-color: floralwhite !important;
+  border-radius: 3px !important;
+  
+}
+
+.recipe-drawer-header {
+  margin: 20px auto;
+  font-family: montserrat;
+  font-size: 25px;
+  font-weight: 600;
+  color: cornflowerblue;
+}
+
+.recipe-drawer-item {
+  padding: 10px 0;
+  cursor: pointer;
+  color: #e4d0b1;
+  font-family: quicksand;
+  transition: .5s;
+  font-weight: 500;
+  padding-left: 25px;
+}
+
+.recipe-drawer-item:hover{
+  background-color: rgb(35, 125, 177);
+  
 }

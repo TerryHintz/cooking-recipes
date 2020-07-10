@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import Paper from '@material-ui/core/Paper';
-import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import AddIcon from '@material-ui/icons/Add';
+import EditIcon from '@material-ui/icons/Edit';
 import './Recipes.css';
 
 const default_recipe = [
@@ -21,7 +23,7 @@ const default_recipe = [
         ],
     },
     {
-        title: 'Shrimp Fried Rice',
+        title: 'Shrimp Fried Rice2',
         image: 'https://www.simplyrecipes.com/wp-content/uploads/2008/08/shrimp-fried-rice-horiz-a-1600.jpg',
         desc: 'Do you ever have leftover rice in the fridge? A great way to use it up is to make fried rice! Fried rice works best with chilled leftover rice actually. Fresh rice can fry up a bit mushy. But leftover rice that had a chance to dry out a bit? Perfect for frying.',
         ingredients: [
@@ -51,7 +53,24 @@ class MainDisplay extends Component {
         return(
             <div className='recipe-root'>
                 <div className='recipe-drawer'>
-
+                    <div className='recipe-drawer-header'>Recipes</div>
+                    <div>
+                        <IconButton className='recipe-icon-btn'>
+                            <AddIcon />
+                        </IconButton>
+                        <IconButton style={{marginLeft: '25px'}} className='recipe-icon-btn'>
+                            <EditIcon />
+                        </IconButton>
+                    </div>
+                    <div style={{marginTop: '20px', textAlign: 'left'}}>
+                        {this.state.recipes.map((recipe) => {
+                            return(
+                                <div className='recipe-drawer-item'>
+                                    {recipe.title}
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
                 <div className='recipe-container'>
                     {this.state.recipes.map((recipe) => {
