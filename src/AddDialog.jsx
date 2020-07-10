@@ -44,7 +44,7 @@ class AddDialog extends Component {
             const resingredients = [];
             for(let i=0; i<ingredients.length; i++){
                 const ingredient = ingredients[i].firstChild.firstElementChild.value;
-                if(ingredient != "")
+                if(ingredient !== "")
                     resingredients.push(ingredient);
             }
             this.setState({ingredients: resingredients});
@@ -61,7 +61,7 @@ class AddDialog extends Component {
         const resSteps = [];
         for(let i=0; i<steps.length; i++){
             const step = steps[i].firstChild.firstElementChild.value;
-            if(step != "")
+            if(step !== "")
                 resSteps.push(step);
         }
         const res = {
@@ -85,7 +85,7 @@ class AddDialog extends Component {
                 open={this.props.show}
                 onClose={this.handleClose}
             >
-                {this.state.page == 1 && 
+                {this.state.page === 1 && 
                     <div className='recipe-dialog'>
                         <div className='recipe-dialog-header'>Title</div>
                         <TextField
@@ -122,12 +122,12 @@ class AddDialog extends Component {
                         </Button>
                     </div>
                 }
-                {this.state.page == 2 &&
+                {this.state.page === 2 &&
                     <div className='recipe-dialog'>
                         <div className='recipe-dialog-header'>Ingredients</div>
-                        {this.state.ingredients.map((item) => {
+                        {this.state.ingredients.map((item, i) => {
                             return(
-                                <div key={item + '-ingredient'} className='recipe-field-container'>
+                                <div key={i + '-ingredient'} className='recipe-field-container'>
                                     <TextField
                                         className='recipe-field-add-ingredients'
                                         variant="outlined"
@@ -160,12 +160,12 @@ class AddDialog extends Component {
                         </Button> */}
                     </div>
                 }
-                {this.state.page == 3 &&
+                {this.state.page === 3 &&
                     <div className='recipe-dialog'>
                         <div className='recipe-dialog-header'>Steps</div>
-                        {this.state.steps.map((item) => {
+                        {this.state.steps.map((item, i) => {
                             return(
-                                <div key={item + '-steps'} className='recipe-field-container'>
+                                <div key={i + '-steps'} className='recipe-field-container'>
                                     <TextField
                                         className='recipe-field-add-steps'
                                         variant="outlined"

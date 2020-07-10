@@ -66,10 +66,10 @@ class MainDisplay extends Component {
                         </IconButton>
                     </div>
                     <div style={{marginTop: '20px', textAlign: 'left'}}>
-                        {this.state.recipes.map((recipe) => {
+                        {this.state.recipes.map((recipe, i) => {
                             return(
                                 <div
-                                    key={recipe.title + '-drawer'}
+                                    key={recipe.title + '-drawer ' + i}
                                     className='recipe-drawer-item'
                                     onClick={() => this.jump(recipe.title)}
                                 >
@@ -80,9 +80,9 @@ class MainDisplay extends Component {
                     </div>
                 </div>
                 <div className='recipe-container'>
-                    {this.state.recipes.map((recipe) => {
+                    {this.state.recipes.map((recipe, i) => {
                         return(
-                            <Paper id={recipe.title} key={recipe.title} elevation={10} className='recipe-paper'>
+                            <Paper id={recipe.title} key={recipe.title + i} elevation={10} className='recipe-paper'>
                                 <div className='recipe-header'>{recipe.title}</div>
                                 <img src={recipe.image} alt={recipe.title} className='recipe-img'/>
                                 <p>{recipe.desc}</p>
