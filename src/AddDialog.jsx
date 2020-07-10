@@ -34,9 +34,18 @@ class AddDialog extends Component {
         this.setState({steps});
     }
 
-    delete = () => {
-
-    }
+    // delete = (type, index) => {
+    //     if(type === 'ingredients'){
+    //         const copy = this.state.ingredients;
+    //         copy.splice(index, 1);
+    //         this.setState({ingredients: copy});
+    //     }
+    //     if(type === 'steps'){
+    //         const copy = this.state.steps;
+    //         copy.splice(index, 1);
+    //         this.setState({steps: copy});
+    //     }
+    // }
 
     handleNext = (next, grab=false) => {
         if(grab){
@@ -137,9 +146,9 @@ class AddDialog extends Component {
                                         className='recipe-field-add-ingredients'
                                         variant="outlined"
                                     />
-                                    <IconButton onClick={() => this.delete()} className='recipe-dialog-add'>
+                                    {/* <IconButton onClick={() => this.delete('ingredients', i)} className='recipe-dialog-add'>
                                         <DeleteIcon />
-                                    </IconButton>
+                                    </IconButton> */}
                                 </div>
                             )
                         })}
@@ -175,9 +184,9 @@ class AddDialog extends Component {
                                         className='recipe-field-add-steps'
                                         variant="outlined"
                                     />
-                                    <IconButton onClick={() => this.delete()} className='recipe-dialog-add'>
+                                    {/* <IconButton onClick={() => this.delete('steps', i)} className='recipe-dialog-add'>
                                         <DeleteIcon />
-                                    </IconButton>
+                                    </IconButton> */}
                                 </div>
                             )
                         })}

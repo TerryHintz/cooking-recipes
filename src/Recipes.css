@@ -92,12 +92,12 @@ li {
 }
 
 .recipe-field-add-ingredients {
-  width: 85%;
+  width: 100%;
   margin: 10px 0 !important;
 }
 
 .recipe-field-add-steps {
-  width: 85%;
+  width: 100%;
   margin: 10px 0 !important;
 }
 
