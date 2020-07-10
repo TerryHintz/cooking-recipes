@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import './Recipes.css';
 import AddDialog from './AddDialog';
 
@@ -52,6 +53,14 @@ class MainDisplay extends Component {
         localStorage.setItem('recipes', newRecipes);
     }
 
+    delete = (i) => {
+        const copy = this.state.recipes;
+        copy.splice(i, 1);
+        this.setState({recipes: copy});
+        const newRecipes = JSON.stringify(copy);
+        localStorage.setItem('recipes', newRecipes);
+    }
+
     render(){
         return(
             <div className='recipe-root'>
@@ -60,10 +69,11 @@ class MainDisplay extends Component {
                     <div>
                         <IconButton onClick={() => this.toggleAdd()} className='recipe-icon-btn'>
                             <AddIcon />
+                            <span style={{fontSize: '20px', fontFamily: 'montserrat', marginLeft: '5px'}}>New Recipe</span>
                         </IconButton>
-                        <IconButton style={{marginLeft: '25px'}} className='recipe-icon-btn'>
+                        {/* <IconButton style={{marginLeft: '25px'}} className='recipe-icon-btn'>
                             <EditIcon />
-                        </IconButton>
+                        </IconButton> */}
                     </div>
                     <div style={{marginTop: '20px', textAlign: 'left'}}>
                         {this.state.recipes.map((recipe, i) => {
@@ -74,6 +84,9 @@ class MainDisplay extends Component {
                                     onClick={() => this.jump(recipe.title)}
                                 >
                                     {recipe.title}
+                                    <IconButton onClick={() => this.delete(i)} className='recipe-delete'>
+                                        <DeleteIcon />
+                                    </IconButton>
                                 </div>
                             )
                         })}

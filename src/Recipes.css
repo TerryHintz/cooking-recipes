@@ -56,7 +56,6 @@ li {
 .recipe-icon-btn {
   background-color: floralwhite !important;
   border-radius: 3px !important;
-  
 }
 
 .recipe-drawer-header {
@@ -123,4 +122,9 @@ li {
 .recipe-field-container {
   display: flex;
   align-items: center;
+}
+
+.recipe-delete {
+  background-color: cornflowerblue !important;
+  margin-left: 10px !important;
 }
