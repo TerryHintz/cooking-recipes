@@ -79,5 +79,28 @@ li {
 
 .recipe-drawer-item:hover{
   background-color: rgb(35, 125, 177);
-  
+}
+
+.recipe-dialog {
+  width: 400px;
+  padding: 20px;
+}
+
+.recipe-field {
+  width: 100%;
+}
+
+.recipe-dialog-header {
+  font-family: quicksand;
+  font-size: 20px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.recipe-dialog-next {
+  background-color: cornflowerblue !important;
+  color: white !important;
+  margin-top: 20px !important;
+  font-family: quicksand !important;
+  float: right;
 }

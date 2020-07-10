@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
 import './Recipes.css';
+import AddDialog from './AddDialog';
 
 const default_recipe = [
     {
@@ -42,6 +43,7 @@ const default_recipe = [
 class MainDisplay extends Component {
     state = {
         recipes: [],
+        dialog: false,
     }
     
     componentDidMount(){
@@ -53,13 +55,17 @@ class MainDisplay extends Component {
         document.getElementById(id).scrollIntoView({behavior: 'smooth'});
     }
 
+    toggleAdd = () => {
+        this.setState({dialog: !this.state.dialog});
+    }
+
     render(){
         return(
             <div className='recipe-root'>
                 <div className='recipe-drawer'>
                     <div className='recipe-drawer-header'>Recipes</div>
                     <div>
-                        <IconButton className='recipe-icon-btn'>
+                        <IconButton onClick={() => this.toggleAdd()} className='recipe-icon-btn'>
                             <AddIcon />
                         </IconButton>
                         <IconButton style={{marginLeft: '25px'}} className='recipe-icon-btn'>
@@ -115,6 +121,10 @@ class MainDisplay extends Component {
                         )
                     })}
                 </div>
+                <AddDialog
+                    show = {this.state.dialog}
+                    toggle = {this.toggleAdd}
+                />
             </div>
         )
     }
