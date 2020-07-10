@@ -88,12 +88,18 @@ li {
 
 .recipe-field {
   width: 100%;
+  margin: 10px 0 !important;
+}
+
+.recipe-field-add {
+  width: 85%;
+  margin: 10px 0 !important;
 }
 
 .recipe-dialog-header {
   font-family: quicksand;
   font-size: 20px;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   font-weight: 500;
 }
 
@@ -103,4 +109,13 @@ li {
   margin-top: 20px !important;
   font-family: quicksand !important;
   float: right;
+}
+
+.recipe-dialog-add {
+  margin: auto !important;
+}
+
+.recipe-field-container {
+  display: flex;
+  align-items: center;
 }
