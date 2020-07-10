@@ -48,6 +48,8 @@ class MainDisplay extends Component {
         const copy = this.state.recipes;
         copy.push(recipe);
         this.setState({recipes: copy});
+        const newRecipes = JSON.stringify(copy);
+        localStorage.setItem('recipes', newRecipes);
     }
 
     render(){
