@@ -72,11 +72,13 @@ class AddDialog extends Component {
             steps: resSteps,
         }
         this.props.addRecipe(res);
+        this.props.toggle();
+        this.setState({page: 1, ingredients: ['', '', ''], steps: ['', '', '']});
     }
 
     handleClose = () => {
         this.props.toggle();
-        this.setState({page: 1});
+        setTimeout(() => this.setState({page: 1, ingredients: ['', '', ''], steps: ['', '', '']}), 500);
     }
 
     render(){
