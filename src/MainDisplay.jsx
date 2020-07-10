@@ -69,7 +69,7 @@ class MainDisplay extends Component {
                     <div>
                         <IconButton onClick={() => this.toggleAdd()} className='recipe-icon-btn'>
                             <AddIcon />
-                            <span style={{fontSize: '20px', fontFamily: 'montserrat', marginLeft: '5px'}}>New Recipe</span>
+                            <span style={{fontWeight: '600' ,fontSize: '20px', fontFamily: 'montserrat', marginLeft: '5px'}}>New Recipe</span>
                         </IconButton>
                         {/* <IconButton style={{marginLeft: '25px'}} className='recipe-icon-btn'>
                             <EditIcon />

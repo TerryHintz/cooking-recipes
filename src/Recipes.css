@@ -8,14 +8,13 @@ li {
 
 .recipe-container {
   margin-left: 300px;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 .recipe-paper {
   max-width: 800px;
   padding: 20px;
   margin: 0 auto 20px auto;
-  
 }
 
 .recipe-sub-section {
@@ -127,4 +126,13 @@ li {
 .recipe-delete {
   background-color: cornflowerblue !important;
   margin-left: 10px !important;
+}
+
+@media only screen and (max-width: 800px){
+  .recipe-drawer {
+    display: none;
+  }
+  .recipe-container {
+    margin-left: 0;
+  }
 }
