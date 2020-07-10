@@ -84,7 +84,9 @@ class MainDisplay extends Component {
                         return(
                             <Paper id={recipe.title} key={recipe.title + i} elevation={10} className='recipe-paper'>
                                 <div className='recipe-header'>{recipe.title}</div>
-                                <img src={recipe.image} alt={recipe.title} className='recipe-img'/>
+                                {recipe.image &&
+                                    <img src={recipe.image} alt={recipe.title} className='recipe-img'/>
+                                }
                                 <p>{recipe.desc}</p>
                                 <div className='recipe-sub-section'>
                                     <div className='recipe-sub-header'>Ingredients</div>

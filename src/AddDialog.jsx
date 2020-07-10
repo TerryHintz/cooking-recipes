@@ -50,6 +50,9 @@ class AddDialog extends Component {
             this.setState({ingredients: resingredients});
         }
         if(next){
+            if(this.state.title === ''){
+                return;
+            }
             this.setState({page: this.state.page + 1});
         } else {
             this.setState({page: this.state.page - 1});
