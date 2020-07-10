@@ -22,22 +22,6 @@ class AddDialog extends Component {
         this.setState({[name]: value});
     };
 
-    handleNext = (next, grab=false) => {
-        if(grab){
-            const ingredients = document.getElementsByClassName('recipe-field-add-ingredients');
-            const resingredients = [];
-            for(let i=0; i<ingredients.length; i++){
-                resingredients.push(ingredients[i].firstChild.firstElementChild.value);
-            }
-            this.setState({ingredients: resingredients});
-        }
-        if(next){
-            this.setState({page: this.state.page + 1});
-        } else {
-            this.setState({page: this.state.page - 1});
-        }
-    }
-
     addIngredient = () => {
         const ingredients = this.state.ingredients;
         ingredients.push('');
@@ -54,11 +38,31 @@ class AddDialog extends Component {
 
     }
 
+    handleNext = (next, grab=false) => {
+        if(grab){
+            const ingredients = document.getElementsByClassName('recipe-field-add-ingredients');
+            const resingredients = [];
+            for(let i=0; i<ingredients.length; i++){
+                const ingredient = ingredients[i].firstChild.firstElementChild.value;
+                if(ingredient != "")
+                    resingredients.push(ingredient);
+            }
+            this.setState({ingredients: resingredients});
+        }
+        if(next){
+            this.setState({page: this.state.page + 1});
+        } else {
+            this.setState({page: this.state.page - 1});
+        }
+    }
+
     finish = () => {
         const steps = document.getElementsByClassName('recipe-field-add-steps');
         const resSteps = [];
         for(let i=0; i<steps.length; i++){
-            resSteps.push(steps[i].firstChild.firstElementChild.value);
+            const step = steps[i].firstChild.firstElementChild.value;
+            if(step != "")
+                resSteps.push(step);
         }
         const res = {
             title: this.state.title,
@@ -67,14 +71,19 @@ class AddDialog extends Component {
             ingredients: this.state.ingredients,
             steps: resSteps,
         }
-        console.log(res);
+        this.props.addRecipe(res);
+    }
+
+    handleClose = () => {
+        this.props.toggle();
+        this.setState({page: 1});
     }
 
     render(){
         return(
             <Dialog
                 open={this.props.show}
-                onClose={this.props.toggle}
+                onClose={this.handleClose}
             >
                 {this.state.page == 1 && 
                     <div className='recipe-dialog'>

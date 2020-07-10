@@ -44,6 +44,12 @@ class MainDisplay extends Component {
         this.setState({dialog: !this.state.dialog});
     }
 
+    addRecipe = (recipe) => {
+        const copy = this.state.recipes;
+        copy.push(recipe);
+        this.setState({recipes: copy});
+    }
+
     render(){
         return(
             <div className='recipe-root'>
@@ -107,6 +113,7 @@ class MainDisplay extends Component {
                     })}
                 </div>
                 <AddDialog
+                    addRecipe = {this.addRecipe}
                     show = {this.state.dialog}
                     toggle = {this.toggleAdd}
                 />
