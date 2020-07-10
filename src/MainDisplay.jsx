@@ -23,21 +23,6 @@ const default_recipe = [
             'Sear shrimp on both sides',
         ],
     },
-    {
-        title: 'Shrimp Fried Rice2',
-        image: 'https://www.simplyrecipes.com/wp-content/uploads/2008/08/shrimp-fried-rice-horiz-a-1600.jpg',
-        desc: 'Do you ever have leftover rice in the fridge? A great way to use it up is to make fried rice! Fried rice works best with chilled leftover rice actually. Fresh rice can fry up a bit mushy. But leftover rice that had a chance to dry out a bit? Perfect for frying.',
-        ingredients: [
-            '8 ounces of shrimp',
-            '1/2 teaspoon of salt',
-            'freshly ground black pepper',
-        ],
-        steps: [
-            'Toss shrimp with salt, pepper, cornstarch',
-            'Heat pan on high heat',
-            'Sear shrimp on both sides',
-        ],
-    }
 ]
 
 class MainDisplay extends Component {

@@ -91,7 +91,12 @@ li {
   margin: 10px 0 !important;
 }
 
-.recipe-field-add {
+.recipe-field-add-ingredients {
+  width: 85%;
+  margin: 10px 0 !important;
+}
+
+.recipe-field-add-steps {
   width: 85%;
   margin: 10px 0 !important;
 }

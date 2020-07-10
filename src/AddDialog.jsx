@@ -22,7 +22,15 @@ class AddDialog extends Component {
         this.setState({[name]: value});
     };
 
-    handleNext = (next) => {
+    handleNext = (next, grab=false) => {
+        if(grab){
+            const ingredients = document.getElementsByClassName('recipe-field-add-ingredients');
+            const resingredients = [];
+            for(let i=0; i<ingredients.length; i++){
+                resingredients.push(ingredients[i].firstChild.firstElementChild.value);
+            }
+            this.setState({ingredients: resingredients});
+        }
         if(next){
             this.setState({page: this.state.page + 1});
         } else {
@@ -43,11 +51,23 @@ class AddDialog extends Component {
     }
 
     delete = () => {
-        
+
     }
 
     finish = () => {
-
+        const steps = document.getElementsByClassName('recipe-field-add-steps');
+        const resSteps = [];
+        for(let i=0; i<steps.length; i++){
+            resSteps.push(steps[i].firstChild.firstElementChild.value);
+        }
+        const res = {
+            title: this.state.title,
+            image: this.state.image,
+            desc: this.state.desc,
+            ingredients: this.state.ingredients,
+            steps: resSteps,
+        }
+        console.log(res);
     }
 
     render(){
@@ -98,9 +118,9 @@ class AddDialog extends Component {
                         <div className='recipe-dialog-header'>Ingredients</div>
                         {this.state.ingredients.map((item) => {
                             return(
-                                <div className='recipe-field-container'>
+                                <div key={item + '-ingredient'} className='recipe-field-container'>
                                     <TextField
-                                        className='recipe-field-add'
+                                        className='recipe-field-add-ingredients'
                                         variant="outlined"
                                     />
                                     <IconButton onClick={() => this.delete()} className='recipe-dialog-add'>
@@ -117,18 +137,18 @@ class AddDialog extends Component {
                         <Button
                             className='recipe-dialog-next'
                             variant="contained"
-                            onClick={() => this.handleNext(true)}
+                            onClick={() => this.handleNext(true, true)}
                         >
                             NEXT
                         </Button>
-                        <Button
+                        {/* <Button
                             style={{float: 'left'}}
                             className='recipe-dialog-next'
                             variant="contained"
                             onClick={() => this.handleNext(false)}
                         >
                             BACK
-                        </Button>
+                        </Button> */}
                     </div>
                 }
                 {this.state.page == 3 &&
@@ -136,9 +156,9 @@ class AddDialog extends Component {
                         <div className='recipe-dialog-header'>Steps</div>
                         {this.state.steps.map((item) => {
                             return(
-                                <div className='recipe-field-container'>
+                                <div key={item + '-steps'} className='recipe-field-container'>
                                     <TextField
-                                        className='recipe-field-add'
+                                        className='recipe-field-add-steps'
                                         variant="outlined"
                                     />
                                     <IconButton onClick={() => this.delete()} className='recipe-dialog-add'>
@@ -159,14 +179,14 @@ class AddDialog extends Component {
                         >
                             FINISH
                         </Button>
-                        <Button
+                        {/* <Button
                             style={{float: 'left'}}
                             className='recipe-dialog-next'
                             variant="contained"
                             onClick={() => this.handleNext(false)}
                         >
                             BACK
-                        </Button>
+                        </Button> */}
                     </div>
                 }
             </Dialog>
