@@ -49,6 +49,10 @@ class MainDisplay extends Component {
         this.setState({recipes});
     }
 
+    jump = (id) => {
+        document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+    }
+
     render(){
         return(
             <div className='recipe-root'>
@@ -65,7 +69,11 @@ class MainDisplay extends Component {
                     <div style={{marginTop: '20px', textAlign: 'left'}}>
                         {this.state.recipes.map((recipe) => {
                             return(
-                                <div className='recipe-drawer-item'>
+                                <div
+                                    key={recipe.title + '-drawer'}
+                                    className='recipe-drawer-item'
+                                    onClick={() => this.jump(recipe.title)}
+                                >
                                     {recipe.title}
                                 </div>
                             )
@@ -75,7 +83,7 @@ class MainDisplay extends Component {
                 <div className='recipe-container'>
                     {this.state.recipes.map((recipe) => {
                         return(
-                            <Paper key={recipe.title} elevation={10} className='recipe-paper'>
+                            <Paper id={recipe.title} key={recipe.title} elevation={10} className='recipe-paper'>
                                 <div className='recipe-header'>{recipe.title}</div>
                                 <img src={recipe.image} alt={recipe.title} className='recipe-img'/>
                                 <p>{recipe.desc}</p>
