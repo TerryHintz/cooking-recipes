@@ -6,10 +6,16 @@ li {
   font-family: quicksand;
 }
 
+.recipe-container {
+  margin-left: 300px;
+  padding-top: 20px;
+}
+
 .recipe-paper {
   max-width: 800px;
   padding: 20px;
-  margin: 20px;
+  margin: 0 auto 20px auto;
+  
 }
 
 .recipe-sub-section {
@@ -32,4 +38,16 @@ li {
   font-family: montserrat;
   font-size: 20px;
   font-weight: 600;
+}
+
+.recipe-root {
+  /* display: flex; */
+  min-height: 100vh;
+}
+
+.recipe-drawer {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background-color: #343335;
 }
